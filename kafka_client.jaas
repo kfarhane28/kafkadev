@@ -1,0 +1,19 @@
+KafkaClient { // used for kafka connection
+       com.sun.security.auth.module.Krb5LoginModule required
+       doNotPrompt=true
+       useKeyTab=true
+       keyTab="/Users/kfarhane/DEV/hmon/conf/prod1/kafka.service.keytab"
+       storeKey=true
+       useTicketCache=true
+       serviceName="kafka"
+       principal="kafka/c3117-node1.labs.support.hortonworks.com@HWX.COM";
+       };
+Client {
+com.sun.security.auth.module.Krb5LoginModule required
+useKeyTab=true
+keyTab="/Users/kfarhane/DEV/hmon/conf/prod1/kafka.service.keytab"
+storeKey=true
+useTicketCache=false
+serviceName="zookeeper"
+principal="kafka/c3117-node1.labs.support.hortonworks.com@HWX.COM";
+};
