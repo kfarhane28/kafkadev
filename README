@@ -1,0 +1,1 @@
+java -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf  com.cloudera.kafkaexamples.SimpleConsumer
