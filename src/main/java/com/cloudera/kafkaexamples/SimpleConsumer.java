@@ -36,7 +36,7 @@ public class SimpleConsumer {
 
         try (KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props)) {
             // List of topics to subscribe to
-            consumer.subscribe(Arrays.asList("ufo_sightings"));
+            consumer.subscribe(Arrays.asList("ndp.cats.s1918-dev.queue.da-topic-tf-br_p00_logapim_01.avro"));
             while (true) {
                 try {
                     ConsumerRecords<String, String> records = consumer.poll(100);
