@@ -16,7 +16,7 @@ public class SimpleConsumer {
         // Set up client Java properties
         Properties props = new Properties();
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "host1:9092,host2:9092,host3:9092");
+                "catshp-zebradev-cdp-kafka-01.ca-ts.group.gca:9093,catshp-zebradev-cdp-kafka-02.ca-ts.group.gca:9093,catshp-zebradev-cdp-kafka-03.ca-ts.group.gca:9093");
         // Just a user-defined string to identify the consumer group
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         // Enable auto offset commit
@@ -26,8 +26,10 @@ public class SimpleConsumer {
                 StringDeserializer.class.getName());
         props.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
                 StringDeserializer.class.getName());
-        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
+        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        props.put("ssl.truststore.location", "/var/lib/cloudera-scm-agent/agent-cert/cm-auto-global_truststore.jks");
+        props.put("ssl.truststore.password", "password123");
 
         props.put("sasl.kerberos.service.name", "kafka");
         //System.setProperty("java.security.auth.login.config", "file:///Users/kfarhane/DEV/hmon/conf/prod1/jaas.conf ");
